@@ -10,9 +10,17 @@ import UIKit
 
 class MainTableViewController: UITableViewController {
 
+    var employees = [Employee]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NetworkService.shared.listEmployees { (employees) in
+            self.employees = employees
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
         
     }
     
@@ -24,12 +32,15 @@ class MainTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return employees.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mainCell", for: indexPath)
-        cell.textLabel?.text = "\(indexPath.row + 1)st Row"
+        //cell.textLabel?.text = "\(indexPath.row + 1)st Row"
+        cell.textLabel?.text = employees[indexPath.row].name + " "
+                               + employees[indexPath.row].secondName
+
         return cell
     }
     

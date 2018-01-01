@@ -12,40 +12,42 @@ import Foundation
 import Foundation
 import Moya
 
+struct Constants {
+    static let serverURL = "http://www.mocky.io/v2/5a488f243000004c15c3c57e"
+}
+
 let provider = MoyaProvider<MyService>()
 
 enum MyService {
-    case listAllCategories
+    case listAllEmployees
 }
 
 
 // MARK: - TargetType Protocol Implementation
+
 extension MyService: TargetType {
-    var baseURL: URL { return URL(string: "http://185.146.1.79/api/v1/")! }
+    var baseURL: URL { return URL(string: Constants.serverURL)! }
     
     var path: String {
         switch self {
-        case .listAllCategories:
-            return "categories"
+        case .listAllEmployees:
+            return ""
         }
         
     }
     
     var method: Moya.Method {
         switch self {
-        case .listAllCategories:
+        case .listAllEmployees:
             return .get
-
-            
         }
     }
     
     var task: Task {
         switch self {
-        case .listAllCategories:
+        case .listAllEmployees:
             return .requestPlain
         }
-        
         
     }
     
@@ -56,7 +58,7 @@ extension MyService: TargetType {
     
     var sampleData: Data {
         switch self {
-        case .listAllCategories:
+        case .listAllEmployees:
             return "Half measures are as bad as nothing at all.".utf8Encoded
         }
         
