@@ -20,7 +20,7 @@ class MainTableViewController: UITableViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Employees"
+        title = "Google Employees"
         employeesVM.loadEmployees { newVM  in
             self.employeesVM = newVM
         }
@@ -42,6 +42,8 @@ class MainTableViewController: UITableViewController{
         return employeesVM.cellInstance(tableView,indexPath: indexPath)
 
     }
+    
+    
     
 
 

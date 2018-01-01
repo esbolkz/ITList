@@ -17,7 +17,7 @@ struct Employee {
 //    let gender: Gender
 //    let ipAddress: String
 //    let photoURL: URL
-//    let employment: Employment
+    let employment: Employment
     
     
     init?(json : SwiftyJSON.JSON) {
@@ -29,6 +29,10 @@ struct Employee {
         
         else {return nil}
         
+        let companyName = json["employment"]["name"].stringValue
+        let position = json["employment"]["position"].stringValue
+        
+        self.employment = Employment(companyName: companyName, position: position)
         self.name = name
         self.secondName = secondName
     }

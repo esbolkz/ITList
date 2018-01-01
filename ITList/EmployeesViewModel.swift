@@ -21,7 +21,12 @@ struct EmployeesViewModel {
 
     
     func loadEmployees(onCompletion: @escaping (EmployeesViewModel) -> Void) {
-        NetworkService.shared.listEmployees { (employees) in
+        NetworkService.shared.getData (with: MyService.listAllEmployees){ (json) in
+            let employees = json.map { (element) -> Employee in
+                let employeeJSON = element.1
+                let employee = Employee(json: employeeJSON)!
+                return employee
+            }
             var newVM = EmployeesViewModel()
             newVM.members = employees
             onCompletion(newVM)
@@ -30,11 +35,12 @@ struct EmployeesViewModel {
     
     func cellInstance(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         //let section = indexPath.section
-        //let row = indexPath.row
+        let row = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: "mainCell", for: indexPath)
         if let employeeCell = cell as? EmployeeTableViewCell{
-            employeeCell.nameLabel.text =  members[indexPath.row].name + " "
-                                         + members[indexPath.row].secondName
+            employeeCell.nameLabel.text =  members[row].name + " "
+                                         + members[row].secondName
+            employeeCell.companyLabel.text = members[row].employment.position
         }
 
 
@@ -44,3 +50,5 @@ struct EmployeesViewModel {
 
     
 }
+
+
