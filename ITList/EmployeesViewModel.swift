@@ -32,8 +32,12 @@ struct EmployeesViewModel {
         //let section = indexPath.section
         //let row = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: "mainCell", for: indexPath)
-        cell.textLabel?.text = members[indexPath.row].name + " "
-                             + members[indexPath.row].secondName
+        if let employeeCell = cell as? EmployeeTableViewCell{
+            employeeCell.nameLabel.text =  members[indexPath.row].name + " "
+                                         + members[indexPath.row].secondName
+        }
+
+
         return cell
     }
     
