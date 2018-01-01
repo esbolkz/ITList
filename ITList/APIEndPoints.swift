@@ -29,7 +29,6 @@ enum MyService {
 
 extension MyService: TargetType {
     var baseURL: URL {
-        
         switch self {
         case .downloadImage:
             return URL(string: Constants.imageURL)!

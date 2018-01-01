@@ -13,7 +13,7 @@ class MainTableViewController: UITableViewController{
     var employeesVM = EmployeesViewModel() {
         didSet{
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                self.tableView.reloadSections([0], with: .fade)
             }
         }
     }
@@ -43,8 +43,18 @@ class MainTableViewController: UITableViewController{
 
     }
     
-    
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let indexPath = tableView.indexPathForSelectedRow!
+        let employee: Employee = employeesVM.members[indexPath.row]
+        if segue.identifier == "toDetail"{
+            if let destinationVC = segue.destination as? EmployeeDetailViewController{
+                destinationVC.employee = employee
+            }
+            
+        }
+        
+    }
+
 
 
 }

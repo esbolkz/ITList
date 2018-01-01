@@ -9,6 +9,9 @@
 import Foundation
 import SwiftyJSON
 
+
+
+
 class NetworkService {
     static let shared = NetworkService()
     
@@ -20,7 +23,8 @@ class NetworkService {
             switch result {
             case let .success(moyaResponse):
                 let data = moyaResponse.data
-                
+
+
                 do {
                     let json = try JSON(data: data)
                     
@@ -34,10 +38,28 @@ class NetworkService {
                 print("MoyaFail",error.errorDescription ?? "MoyaFail")
                 
             }
-            
         }
-        
     }
+    
+    
+    func getImage(with service: MyService, onCompletion: @escaping (_ response: Data) -> Void ){
+        
+        provider.request(service) { (result) in
+            
+            switch result {
+            case let .success(moyaResponse):
+                let data = moyaResponse.data
+                
+                onCompletion(data)
+                
+            case let .failure(error):
+                print("MoyaFail",error.errorDescription ?? "MoyaFail")
+                
+            }
+        }
+    }
+    
+    
     
     
     
