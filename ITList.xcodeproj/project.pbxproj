@@ -12,6 +12,7 @@
 		444012861FF944D600530995 /* Employment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444012851FF944D600530995 /* Employment.swift */; };
 		444C26AF1FFA06E50087ECF4 /* APIEndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444C26AE1FFA06E50087ECF4 /* APIEndPoints.swift */; };
 		444C26B21FFA0B300087ECF4 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444C26B11FFA0B300087ECF4 /* NetworkService.swift */; };
+		444C26B61FFA2A600087ECF4 /* EmployeesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444C26B51FFA2A600087ECF4 /* EmployeesViewModel.swift */; };
 		447193E41FF93EFB001D88A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447193E31FF93EFB001D88A1 /* AppDelegate.swift */; };
 		447193E91FF93EFB001D88A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 447193E71FF93EFB001D88A1 /* Main.storyboard */; };
 		447193EB1FF93EFB001D88A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 447193EA1FF93EFB001D88A1 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 		444012851FF944D600530995 /* Employment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employment.swift; sourceTree = "<group>"; };
 		444C26AE1FFA06E50087ECF4 /* APIEndPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIEndPoints.swift; sourceTree = "<group>"; };
 		444C26B11FFA0B300087ECF4 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		444C26B51FFA2A600087ECF4 /* EmployeesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeesViewModel.swift; sourceTree = "<group>"; };
 		447193E01FF93EFB001D88A1 /* ITList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ITList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		447193E31FF93EFB001D88A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		447193E81FF93EFB001D88A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -53,9 +55,9 @@
 		4440127E1FF9431C00530995 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				447193EC1FF93EFB001D88A1 /* LaunchScreen.storyboard */,
 				447193E31FF93EFB001D88A1 /* AppDelegate.swift */,
 				447193EA1FF93EFB001D88A1 /* Assets.xcassets */,
-				447193EC1FF93EFB001D88A1 /* LaunchScreen.storyboard */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -67,6 +69,23 @@
 				444C26B11FFA0B300087ECF4 /* NetworkService.swift */,
 			);
 			name = Network;
+			sourceTree = "<group>";
+		};
+		444C26B31FFA29EE0087ECF4 /* MainModules */ = {
+			isa = PBXGroup;
+			children = (
+				444C26B41FFA2A350087ECF4 /* Model */,
+				447193F51FF93F65001D88A1 /* MainTableViewController.swift */,
+			);
+			name = MainModules;
+			sourceTree = "<group>";
+		};
+		444C26B41FFA2A350087ECF4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				444C26B51FFA2A600087ECF4 /* EmployeesViewModel.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		447193D71FF93EFB001D88A1 = {
@@ -91,11 +110,11 @@
 			isa = PBXGroup;
 			children = (
 				447193EF1FF93EFB001D88A1 /* Info.plist */,
-				447193E71FF93EFB001D88A1 /* Main.storyboard */,
-				447193F51FF93F65001D88A1 /* MainTableViewController.swift */,
-				4440127F1FF943B400530995 /* Employee.swift */,
-				444012831FF944A000530995 /* Gender.swift */,
 				444012851FF944D600530995 /* Employment.swift */,
+				444012831FF944A000530995 /* Gender.swift */,
+				447193E71FF93EFB001D88A1 /* Main.storyboard */,
+				4440127F1FF943B400530995 /* Employee.swift */,
+				444C26B31FFA29EE0087ECF4 /* MainModules */,
 				4440127E1FF9431C00530995 /* Supporting Files */,
 				444C26B01FFA0A4C0087ECF4 /* Network */,
 			);
@@ -260,6 +279,7 @@
 				447193F61FF93F65001D88A1 /* MainTableViewController.swift in Sources */,
 				444C26B21FFA0B300087ECF4 /* NetworkService.swift in Sources */,
 				444012801FF943B400530995 /* Employee.swift in Sources */,
+				444C26B61FFA2A600087ECF4 /* EmployeesViewModel.swift in Sources */,
 				447193E41FF93EFB001D88A1 /* AppDelegate.swift in Sources */,
 				444C26AF1FFA06E50087ECF4 /* APIEndPoints.swift in Sources */,
 			);
